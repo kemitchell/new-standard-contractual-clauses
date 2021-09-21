@@ -3,7 +3,9 @@
   "required": [
     "type",
     "independentDisputeResolution",
-    "subprocessorAuthorization"
+    "subprocessorAuthorization",
+    "courts",
+    "governingLaw"
   ],
   "additionalProperties": false,
   "properties": {
