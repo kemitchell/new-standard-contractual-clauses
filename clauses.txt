@@ -574,14 +574,9 @@ Clause 2
 
 Governing law
 
-[OPTION 1: These Clauses shall be governed by the law of one of the Member States of the
-European Union, provided such law allows for third party beneficiary rights. The Parties
-agree that this shall be the law of _______ (specify Member State).]
-[OPTION 2 (for Module Two and Three): These Clauses shall be governed by the law of the
-Member State of the European Union where the data exporter is established. Where such law
-does not allow for third party beneficiary rights, they shall be governed by the law of another
-Member State of the European Union that allows for third party beneficiary rights. The Parties
-agree that this shall be the law of _______ (specify Member State).]
+[OPTION 1: These Clauses shall be governed by the law of one of the Member States of the European Union, provided such law allows for third party beneficiary rights. The Parties agree that this shall be the law of _______ (specify Member State).]
+
+[OPTION 2 (for Module Two and Three): These Clauses shall be governed by the law of the Member State of the European Union where the data exporter is established. Where such law does not allow for third party beneficiary rights, they shall be governed by the law of another Member State of the European Union that allows for third party beneficiary rights. The Parties agree that this shall be the law of _______ (specify Member State).]
 
 Clause 3
 
