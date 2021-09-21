@@ -596,11 +596,11 @@ Clause 17
 Governing law
 
 <% if (type === 'controller to controller') { %>
-These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %> (specify Member State).
+These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %>.
 <% } else if (type === 'controller to processor' || type === 'processor to processor') { %>
 These Clauses shall be governed by the law of the EU Member State in which the data exporter is established. Where such law does not allow for third-party beneficiary rights, they shall be governed by the law of another EU Member State that does allow for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %> (specify Member State).
 <% } else if (type === 'processor to controller') { %>
-Transfer processor to controller These Clauses shall be governed by the law of a country allowing for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %> (specify country).
+Transfer processor to controller These Clauses shall be governed by the law of a country allowing for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %>.
 <% } %>
 
 Clause 18
@@ -611,7 +611,7 @@ Choice of forum and jurisdiction
 
 (a) Any dispute arising from these Clauses shall be resolved by the courts of an EU Member State.
 
-(b) The Parties agree that those shall be the courts of <%= courts %> (specify Member State).
+(b) The Parties agree that those shall be the courts of <%= courts %>.
 
 (c) A data subject may also bring legal proceedings against the data exporter and/or data importer before the courts of the Member State in which he/she has his/her habitual residence.
 
@@ -619,7 +619,7 @@ Choice of forum and jurisdiction
 
 <% } else if (type === 'processor to controller') { %>
 
-Any dispute arising from these Clauses shall be resolved by the courts of <%= courts %> (specify country).
+Any dispute arising from these Clauses shall be resolved by the courts of <%= courts %>.
 
 <% } %>
 
