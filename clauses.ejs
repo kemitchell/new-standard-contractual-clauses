@@ -574,11 +574,7 @@ Clause 2
 
 Governing law
 
-<%_ if (locals.controllerToProcessor || locals.processorToProcessor) { _%>
-These Clauses shall be governed by the law of the Member State of the European Union where the data exporter is established. Where such law does not allow for third party beneficiary rights, they shall be governed by the law of another Member State of the European Union that allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).
-<%_ } else { _%>
-These Clauses shall be governed by the law of one of the Member States of the European Union, provided such law allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).
-<%_ } _%>
+<% if (locals.controllerToProcessor || locals.processorToProcessor) { %>These Clauses shall be governed by the law of the Member State of the European Union where the data exporter is established. Where such law does not allow for third party beneficiary rights, they shall be governed by the law of another Member State of the European Union that allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).<% } else { %>These Clauses shall be governed by the law of one of the Member States of the European Union, provided such law allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).<% } %>
 
 Clause 3
 
