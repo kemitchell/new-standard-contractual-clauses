@@ -414,10 +414,7 @@ Documentation and compliance
 
 (a) The Parties shall be able to demonstrate compliance with these Clauses.
 
-[^7]: This includes whether the transfer and further processing involves personal data revealing racial or ethnic
-origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data or
-biometric data for the purpose of uniquely identifying a natural person, data concerning health or a person's
-sex life or sexual orientation, or data relating to criminal convictions or offences.
+[^7]: This includes whether the transfer and further processing involves personal data revealing racial or ethnic origin, political opinions, religious or philosophical beliefs, or trade union membership, genetic data or biometric data for the purpose of uniquely identifying a natural person, data concerning health or a person's sex life or sexual orientation, or data relating to criminal convictions or offences.
 
 (b) The data exporter shall make available to the data importer all information necessary to demonstrate compliance with its obligations under these Clauses and allow for and contribute to audits.
 
