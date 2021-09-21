@@ -38,7 +38,7 @@
     "independentDisputeResolution": {
       "type": "boolean"
     },
-    "coyurts": {
+    "courts": {
       "type": "string"
     },
     "governingLaw": {
