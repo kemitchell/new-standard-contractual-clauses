@@ -1,0 +1,48 @@
+{
+  "type": "object",
+  "required": [
+    "type",
+    "independentDisputeResolution",
+    "subprocessorAuthorization"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "type": {
+      "enum": [
+        "controller to controller",
+        "controller to processor",
+        "processor to controller",
+        "processor to processor"
+      ]
+    },
+    "docking": {
+      "type": "boolean"
+    },
+    "combiningWithCollected": {
+      "type": "boolean"
+    },
+    "subprocessorAuthorization": {
+      "enum": [
+        "general",
+        "specific"
+      ]
+    },
+    "subprocessorTime": {
+      "type": "string"
+    },
+    "onTermination": {
+      "enum": [
+        "delete"
+      ]
+    },
+    "independentDisputeResolution": {
+      "type": "boolean"
+    },
+    "coyurts": {
+      "type": "string"
+    },
+    "governingLaw": {
+      "type": "string"
+    }
+  }
+}

@@ -100,7 +100,7 @@ Data protection safeguards
 
 The data exporter warrants that it has used reasonable efforts to determine that the data importer is able, through the implementation of appropriate technical and organisational measures, to satisfy its obligations under these Clauses.
 
-MODULE ONE: Transfer controller to controller
+<% if (type === 'controller to controller') { %>
 
 8.1
 
@@ -208,7 +208,7 @@ Documentation and compliance
 
 (b) The data importer shall make such documentation available to the competent supervisory authority on request.
 
-MODULE TWO: Transfer controller to processor
+<% } else if (type === 'controller to processor') { %>
 
 8.1
 
@@ -290,7 +290,7 @@ Documentation and compliance
 
 (e) The Parties shall make the information referred to in paragraphs (b) and (c), including the results of any audits, available to the competent supervisory authority on request.
 
-MODULE THREE: Transfer processor to processor
+<% } else if (type === 'processor to processor') { %>
 
 8.1
 
@@ -384,7 +384,7 @@ The Parties shall make the information referred to in paragraphs (b) and (c),
 including the results of any audits, available to the competent supervisory authority
 on request.
 
-MODULE FOUR: Transfer processor to controller
+<% } else { %>
 
 8.1
 
@@ -421,11 +421,13 @@ sex life or sexual orientation, or data relating to criminal convictions or offe
 
 (b) The data exporter shall make available to the data importer all information necessary to demonstrate compliance with its obligations under these Clauses and allow for and contribute to audits.
 
+<% } %>
+
 Clause 9
 
 Use of sub-processors
 
-MODULE TWO: Transfer controller to processor
+<% if (type === 'controller to processor') { %>
 
 (a)
 
@@ -443,13 +445,9 @@ OPTION 2: GENERAL WRITTEN AUTHORISATION The data importer has the data exporter�
 
 [^8]: This requirement may be satisfied by the sub-processor acceding to these Clauses under the appropriate Module, in accordance with Clause 7.
 
-MODULE THREE: Transfer processor to processor
+<% } else if (type === 'processor to processor') { %>
 
-(a)
-
-OPTION 1: SPECIFIC PRIOR AUTHORISATION The data importer shall not subcontract any of its processing activities performed on behalf of the data exporter under these Clauses to a sub-processor without the prior specific written authorisation of the controller. The data importer shall submit the request for specific authorisation at least [Specify time period] prior to the engagement of the subprocessor, together with the information necessary to enable the controller to decide on the authorisation. It shall inform the data exporter of such engagement. The list of sub-processors already authorised by the controller can be found in Annex III. The Parties shall keep Annex III up to date.
-
-OPTION 2: GENERAL WRITTEN AUTHORISATION The data importer has the controller’s general authorisation for the engagement of sub-processor(s) from an agreed list. The data importer shall specifically inform the controller in writing of any intended changes to that list through the addition or replacement of subprocessors at least [Specify time period] in advance, thereby giving the controller sufficient time to be able to object to such changes prior to the engagement of the sub-processor(s). The data importer shall provide the controller with the information necessary to enable the controller to exercise its right to object. The data importer shall inform the data exporter of the engagement of the sub-processor(s).
+(a) <% if (subprocessorAuthorization === 'specific') { %>The data importer shall not subcontract any of its processing activities performed on behalf of the data exporter under these Clauses to a sub-processor without the prior specific written authorisation of the controller. The data importer shall submit the request for specific authorisation at least <%= subprocessorTime %> prior to the engagement of the subprocessor, together with the information necessary to enable the controller to decide on the authorisation. It shall inform the data exporter of such engagement. The list of sub-processors already authorised by the controller can be found in Annex III. The Parties shall keep Annex III up to date.<% } else { %>The data importer has the controller’s general authorisation for the engagement of sub-processor(s) from an agreed list. The data importer shall specifically inform the controller in writing of any intended changes to that list through the addition or replacement of subprocessors at least <%= subprocessorTime %> in advance, thereby giving the controller sufficient time to be able to object to such changes prior to the engagement of the sub-processor(s). The data importer shall provide the controller with the information necessary to enable the controller to exercise its right to object. The data importer shall inform the data exporter of the engagement of the sub-processor(s).<% } %>
 
 (b) Where the data importer engages a sub-processor to carry out specific processing activities (on behalf of the controller), it shall do so by way of a written contract that provides for, in substance, the same data protection obligations as those binding the data importer under these Clauses, including in terms of third-party beneficiary rights for data subjects.[^9] The Parties agree that, by complying with this Clause, the data importer fulfils its obligations under Clause 8.8. The data importer shall ensure that the sub-processor complies with the obligations to which the data importer is subject pursuant to these Clauses.
 
@@ -461,11 +459,13 @@ OPTION 2: GENERAL WRITTEN AUTHORISATION The data importer has the controller’s
 
 [^9]: This requirement may be satisfied by the sub-processor acceding to these Clauses under the appropriate Module, in accordance with Clause 7.
 
+<% } %>
+
 Clause 10
 
 Data subject rights
 
-MODULE ONE: Transfer controller to controller
+<% if (type === 'controller to controller') { %>
 
 (a) The data importer, where relevant with the assistance of the data exporter, shall deal with any enquiries and requests it receives from a data subject relating to the processing of his/her personal data and the exercise of his/her rights under these Clauses without undue delay and at the latest within one month of the receipt of the enquiry or request.[^10] The data importer shall take appropriate measures to facilitate such enquiries, requests and the exercise of data subject rights. Any information provided to the data subject shall be in an intelligible and easily accessible form, using clear and plain language.
 
@@ -493,7 +493,7 @@ MODULE ONE: Transfer controller to controller
 
 (g) If the data importer intends to refuse a data subject’s request, it shall inform the data subject of the reasons for the refusal and the possibility of lodging a complaint with the competent supervisory authority and/or seeking judicial redress.
 
-MODULE TWO: Transfer controller to processor
+<% } else if (type === 'controller to processor') { %>
 
 (a) The data importer shall promptly notify the data exporter of any request it has received from a data subject. It shall not respond to that request itself unless it has been authorised to do so by the data exporter.
 
@@ -501,7 +501,7 @@ MODULE TWO: Transfer controller to processor
 
 (c) In fulfilling its obligations under paragraphs (a) and (b), the data importer shall comply with the instructions from the data exporter.
 
-MODULE THREE: Transfer processor to processor
+<% } else if (type === 'processor to processor') { %>
 
 (a) The data importer shall promptly notify the data exporter and, where appropriate, the controller of any request it has received from a data subject, without responding to that request unless it has been authorised to do so by the controller.
 
@@ -509,9 +509,11 @@ MODULE THREE: Transfer processor to processor
 
 (c) In fulfilling its obligations under paragraphs (a) and (b), the data importer shall comply with the instructions from the controller, as communicated by the data exporter.
 
-MODULE FOUR: Transfer processor to controller
+<% } else if (type === 'processor to controller') { %>
 
 The Parties shall assist each other in responding to enquiries and requests made by data subjects under the local law applicable to the data importer or, for data processing by the data exporter in the EU, under Regulation (EU) 2016/679.
+
+<% } %>
 
 Clause 11
 
@@ -519,13 +521,9 @@ Redress
 
 (a) The data importer shall inform data subjects in a transparent and easily accessible format, through individual notice or on its website, of a contact point authorised to handle complaints. It shall deal promptly with any complaints it receives from a data subject.
 
-[OPTION: The data importer agrees that data subjects may also lodge a complaint with an independent dispute resolution body[^11] at no cost to the data subject. It shall inform the data subjects, in the manner set out in paragraph (a), of such redress mechanism and that they are not required to use it, or follow a particular sequence in seeking redress.]
+<% if (independentDisputeResolution) { %>The data importer agrees that data subjects may also lodge a complaint with an independent dispute resolution body[^11] at no cost to the data subject. It shall inform the data subjects, in the manner set out in paragraph (a), of such redress mechanism and that they are not required to use it, or follow a particular sequence in seeking redress.<% } %>
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor') { %>
 
 (b) In case of a dispute between a data subject and one of the Parties as regards compliance with these Clauses, that Party shall use its best efforts to resolve the issue amicably in a timely fashion. The Parties shall keep each other informed about such disputes and, where appropriate, cooperate in resolving them.
 
@@ -543,13 +541,13 @@ MODULE THREE: Transfer processor to processor
 
 (f) The data importer agrees that the choice made by the data subject will not prejudice his/her substantive and procedural rights to seek remedies in accordance with applicable laws.
 
+<% } %>
+
 Clause 12
 
 Liability
 
-MODULE ONE: Transfer controller to controller
-
-MODULE FOUR: Transfer processor to controller
+<% if (type === 'controller to controller' || type === 'processor to controller') { %>
 
 (a) Each Party shall be liable to the other Party/ies for any damages it causes the other Party/ies by any breach of these Clauses.
 
@@ -561,9 +559,7 @@ MODULE FOUR: Transfer processor to controller
 
 (e) The data importer may not invoke the conduct of a processor or sub-processor to avoid its own liability.
 
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
+<% } else if (type === 'controller to processor' || type === 'processor to processor') { %>
 
 (a) Each Party shall be liable to the other Party/ies for any damages it causes the other Party/ies by any breach of these Clauses.
 
@@ -579,15 +575,13 @@ MODULE THREE: Transfer processor to processor
 
 (g) The data importer may not invoke the conduct of a sub-processor to avoid its own liability.
 
+<% } %>
+
 Clause 13
 
 Supervision
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor') { %>
 
 (a) [Where the data exporter is established in an EU Member State:] The supervisory authority with responsibility for ensuring compliance by the data exporter with Regulation (EU) 2016/679 as regards the data transfer, as indicated in Annex I.C, shall act as competent supervisory authority.
 
@@ -597,19 +591,15 @@ MODULE THREE: Transfer processor to processor
 
 (b) The data importer agrees to submit itself to the jurisdiction of and cooperate with the competent supervisory authority in any procedures aimed at ensuring compliance with these Clauses. In particular, the data importer agrees to respond to enquiries, submit to audits and comply with the measures adopted by the supervisory authority, including remedial and compensatory measures. It shall provide the supervisory authority with written confirmation that the necessary actions have been taken.
 
+<% } %>
+
 SECTION III – LOCAL LAWS AND OBLIGATIONS IN CASE OF ACCESS BY PUBLIC AUTHORITIES
 
 Clause 14
 
 Local laws and practices affecting compliance with the Clauses
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
-
-MODULE FOUR: Transfer processor to controller (where the EU processor combines the personal data received from the third country-controller with personal data collected by the processor in the EU)
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor' || (type === 'processor to controller' && combiningWithCollected)) { %>
 
 (a) The Parties warrant that they have no reason to believe that the laws and practices in the third country of destination applicable to the processing of the personal data by the data importer, including any requirements to disclose personal data or measures authorising access by public authorities, prevent the data importer from fulfilling its obligations under these Clauses. This is based on the understanding that laws and practices that respect the essence of the fundamental rights and freedoms and do not exceed what is necessary and proportionate in a democratic society to safeguard one of the objectives listed in Article 23(1) of Regulation (EU) 2016/679, are not in contradiction with these Clauses.
 
@@ -631,17 +621,13 @@ MODULE FOUR: Transfer processor to controller (where the EU processor combines t
 
 (f) Following a notification pursuant to paragraph (e), or if the data exporter otherwise has reason to believe that the data importer can no longer fulfil its obligations under these Clauses, the data exporter shall promptly identify appropriate measures (e.g. technical or organisational measures to ensure security and confidentiality) to be adopted by the data exporter and/or data importer to address the situation [for Module Three: , if appropriate in consultation with the controller]. The data exporter shall suspend the data transfer if it considers that no appropriate safeguards for such transfer can be ensured, or if instructed by [for Module Three: the controller or] the competent supervisory authority to do so. In this case, the data exporter shall be entitled to terminate the contract, insofar as it concerns the processing of personal data under these Clauses. If the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the relevant Party, unless the Parties have agreed otherwise. Where the contract is terminated pursuant to this Clause, Clause 16(d) and (e) shall apply.
 
+<% } %>
+
 Clause 15
 
 Obligations of the data importer in case of access by public authorities
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
-
-MODULE FOUR: Transfer processor to controller (where the EU processor combines the personal data received from the third country-controller with personal data collected by the processor in the EU)
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor' || (type === 'processor to controller' && combiningWithCollected)) { %>
 
 15.1
 
@@ -675,6 +661,8 @@ Review of legality and data minimisation
 
 (c) The data importer agrees to provide the minimum amount of information permissible when responding to a request for disclosure, based on a reasonable interpretation of the request.
 
+<% } %>
+
 SECTION IV – FINAL PROVISIONS
 
 Clause 16
@@ -701,39 +689,33 @@ Clause 17
 
 Governing law
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
-
-[OPTION 1: These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of _______ (specify Member State).]
-
-[OPTION 2 (for Modules Two and Three): These Clauses shall be governed by the law of the EU Member State in which the data exporter is established. Where such law does not allow for third-party beneficiary rights, they shall be governed by the law of another EU Member State that does allow for third-party beneficiary rights. The Parties agree that this shall be the law of _______ (specify Member State).]
-
-MODULE FOUR: Transfer processor to controller These Clauses shall be governed by the law of a country allowing for third-party beneficiary rights. The Parties agree that this shall be the law of _______ (specify country).
+<% if (type === 'controller to controller') { %>
+These Clauses shall be governed by the law of one of the EU Member States, provided such law allows for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %> (specify Member State).
+<% } else if (type === 'controller to processor' || type === 'processor to processor') { %>
+These Clauses shall be governed by the law of the EU Member State in which the data exporter is established. Where such law does not allow for third-party beneficiary rights, they shall be governed by the law of another EU Member State that does allow for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %> (specify Member State).
+<% } else if (type === 'processor to controller') { %>
+Transfer processor to controller These Clauses shall be governed by the law of a country allowing for third-party beneficiary rights. The Parties agree that this shall be the law of <%= governingLaw %> (specify country).
+<% } %>
 
 Clause 18
 
 Choice of forum and jurisdiction
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor') { %>
 
 (a) Any dispute arising from these Clauses shall be resolved by the courts of an EU Member State.
 
-(b) The Parties agree that those shall be the courts of _____ (specify Member State).
+(b) The Parties agree that those shall be the courts of <%= courts %> (specify Member State).
 
 (c) A data subject may also bring legal proceedings against the data exporter and/or data importer before the courts of the Member State in which he/she has his/her habitual residence.
 
 (d) The Parties agree to submit themselves to the jurisdiction of such courts.
 
-MODULE FOUR: Transfer processor to controller
+<% } else if (type === 'processor to controller') { %>
 
-Any dispute arising from these Clauses shall be resolved by the courts of _____ (specify country).
+Any dispute arising from these Clauses shall be resolved by the courts of <%= courts %> (specify country).
+
+<% } %>
 
 APPENDIX
 
@@ -744,14 +726,6 @@ It must be possible to clearly distinguish the information applicable to each tr
 ANNEX I
 
 A. LIST OF PARTIES
-
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
-
-MODULE FOUR: Transfer processor to controller
 
 Data exporter(s): [Identity and contact details of the data exporter(s) and, where applicable, of its/their data protection officer and/or representative in the European Union]
 
@@ -787,14 +761,6 @@ Role (controller/processor): …
 
 B. DESCRIPTION OF TRANSFER
 
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
-
-MODULE FOUR: Transfer processor to controller
-
 Categories of data subjects whose personal data is transferred ………………………..
 
 Categories of personal data transferred ………………………..
@@ -811,23 +777,16 @@ The period for which the personal data will be retained, or, if that is not poss
 
 For transfers to (sub-) processors, also specify subject matter, nature and duration of the processing ……………………..
 
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor') { %>
 C. COMPETENT SUPERVISORY AUTHORITY
-
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
 
 Identify the competent supervisory authority/ies in accordance with Clause 13 ………………………….
 
+<% } %>
+
+<% if (type === 'controller to controller' || type === 'controller to processor' || type === 'processor to processor') { %>
+
 ANNEX II - TECHNICAL AND ORGANISATIONAL MEASURES INCLUDING TECHNICAL AND ORGANISATIONAL MEASURES TO ENSURE THE SECURITY OF THE DATA
-
-MODULE ONE: Transfer controller to controller
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
 
 EXPLANATORY NOTE:
 
@@ -871,11 +830,10 @@ Measures for allowing data portability and ensuring erasure]
 
 For transfers to (sub-) processors, also describe the specific technical and organisational measures to be taken by the (sub-) processor to be able to provide assistance to the controller and, for transfers from a processor to a sub-processor, to the data exporter
 
+<% } %>
+
+<% if (type === 'controller to processor' || type === 'processor to processor') { %>
 ANNEX III – LIST OF SUB-PROCESSORS
-
-MODULE TWO: Transfer controller to processor
-
-MODULE THREE: Transfer processor to processor
 
 EXPLANATORY NOTE:
 
@@ -892,3 +850,5 @@ Contact person’s name, position and contact details: …
 Description of processing (including a clear delimitation of responsibilities in case several sub-processors are authorised): …
 
 2. …
+
+<% } %>

@@ -1,9 +1,11 @@
 {
   "private": true,
   "devDependencies": {
+    "ajv-cli": "^5.0.0",
     "ejs": "^3.1.6"
   },
   "scripts": {
+    "test": "ajv validate -s ./schema.json -d ./options.json",
     "build": "ejs -f options.json -o clauses.txt ./template.ejs"
   }
 }

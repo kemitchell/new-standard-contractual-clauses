@@ -1,14 +1,10 @@
 {
-  "independentDisputeResolutionBody": false,
-  "controllerToProcessor": true,
-  "controllerToController": false,
-  "processorToController": false,
-  "processorToProcessor": false,
-  "combiningWithCollectedData": false,
+  "type": "controller to processor",
   "docking": true,
-  "specificPriorAuthorization": false,
-  "subprocessorAuthorizationTime": false,
-  "subprocessorNoticeTime": "thirty days",
-  "deleteOnTermination": true,
-  "governingLawState": "France"
+  "subprocessorAuthorization": "general",
+  "subprocessorTime": "thirty days",
+  "independentDisputeResolution": false,
+  "onTermination": "delete",
+  "courts": "France",
+  "governingLaw": "France"
 }
