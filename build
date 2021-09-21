@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+if ! [ -d node_modules ]; then
+  npm ci
+fi
+
+variants=variants
+mkdir -p $variants
+
+EJS=node_modules/.bin/ejs
+$EJS -f /dev/stdin ./clauses.ejs > $variants/c2p.txt <<EOS
+{
+  "independentDisputeResolutionBody": false,
+  "controllerToProcessor": true,
+  "controllerToController": false,
+  "processorToController": false,
+  "processorToProcessor": false,
+  "combiningWithCollectedData": false,
+  "governingLawState": "France"
+}
+EOS
