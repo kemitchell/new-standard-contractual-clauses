@@ -4,6 +4,7 @@
     "type",
     "independentDisputeResolution",
     "subprocessorAuthorization",
+    "exporterInEU",
     "courts",
     "governingLaw"
   ],
@@ -21,6 +22,12 @@
       "type": "boolean"
     },
     "combiningWithCollected": {
+      "type": "boolean"
+    },
+    "exporterInEU": {
+      "type": "boolean"
+    },
+    "hasEURepresentative": {
       "type": "boolean"
     },
     "subprocessorAuthorization": {

@@ -5,6 +5,8 @@
   "subprocessorTime": "thirty days",
   "independentDisputeResolution": false,
   "onTermination": "delete",
+  "exporterInEU": false,
+  "hasEURepresentative": true,
   "courts": "France",
   "governingLaw": "France"
 }
