@@ -656,16 +656,11 @@ For transfers to (sub-) processors, also specify subject matter, nature and dura
 
 ANNEX II - TECHNICAL AND ORGANISATIONAL MEASURES INCLUDING TECHNICAL AND ORGANISATIONAL MEASURES TO ENSURE THE SECURITY OF THE DATA
 
-[For transfers to (sub-) processors, this annex reflects the corresponding instructions
-received from the controller(s):]
+[For transfers to (sub-) processors, this annex reflects the corresponding instructions received from the controller(s):]
 
-Description of the technical and organisational measures implemented by the data
-importer(s), including any relevant certifications
+Description of the technical and organisational measures implemented by the data importer(s), including any relevant certifications
 
-[TAKING INTO ACCOUNT THE NATURE, SCOPE, CONTEXT AND PURPOSES OF
-THE PROCESSING ACTIVITY AS WELL AS THE RISK FOR THE RIGHTS AND
-FREEDOMS OF NATURAL PERSONS, DESCRIBE ELEMENTS THAT ARE
-ESSENTIAL TO THE LEVEL OF SECURITY]
+[TAKING INTO ACCOUNT THE NATURE, SCOPE, CONTEXT AND PURPOSES OF THE PROCESSING ACTIVITY AS WELL AS THE RISK FOR THE RIGHTS AND FREEDOMS OF NATURAL PERSONS, DESCRIBE ELEMENTS THAT ARE ESSENTIAL TO THE LEVEL OF SECURITY]
 
 For example:
 
@@ -692,7 +687,6 @@ For example:
 [DESCRIBE REQUIREMENTS FOR INTERNAL IT AND IT SECURITY GOVERNANCE AND MANAGEMENTS]
 
 [DESCRIBE REQUIREMENTS FOR CERTIFICATION / ASSURANCE OF PROCESSES AND PRODUCTS]
-
 
 [DESCRIBE REQUIREMENTS FOR DATA AVOIDANCE AND MINIMISATION]
 
