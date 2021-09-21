@@ -1,15 +1,3 @@
-#!/bin/sh
-set -e
-
-if ! [ -d node_modules ]; then
-  npm ci
-fi
-
-variants=variants
-mkdir -p $variants
-
-EJS=node_modules/.bin/ejs
-$EJS -f /dev/stdin ./clauses.ejs > $variants/c2p.txt <<EOS
 {
   "independentDisputeResolutionBody": false,
   "controllerToProcessor": true,
@@ -24,4 +12,3 @@ $EJS -f /dev/stdin ./clauses.ejs > $variants/c2p.txt <<EOS
   "deleteOnTermination": true,
   "governingLawState": "France"
 }
-EOS
