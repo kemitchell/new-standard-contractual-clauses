@@ -30,13 +30,13 @@ Third party beneficiaries
 
 (i) Section I;
 
-(ii) Section II - Module One: Clause 1.5 (d) and Clause 1.9(b); Module Two: Clause 1.9(a), (c), (d) and (e); Module Three: Clause 1.1 and Clause 1.9(a), (c), (d) and (e); Module Four: Clause 1.1, Clause 1.2 and Clause 1.3;
+(ii) Section II - <% if (locals.controllerToController) { %>Clause 1.5 (d) and Clause 1.9(b);<% } else if (locals.controllerToProcessor) { %> Clause 1.9(a), (c), (d) and (e);<% } else if (localst.processorToProcessor) { %>Clause 1.1 and Clause 1.9(a), (c), (d) and (e);<% } else if (locals.processorToController) { %>Clause 1.1, Clause 1.2 and Clause 1.3;<% } %>
 
 (iii) Section II, Clause 3.1 (c), (d) and (e);
 
 (iv) Section II, Clause 4;
 
-(v) Section II - Module One: Clause 7(a), (b); Modules Two and Three: Clause 7(a), (b);
+(v) <% if (locals.controllerToController) { %>Section II - Clause 7(a), (b);<% } else if (locals.controllerToProcessor || locals.processorToProcessor) { %>Section II - Clause 7(a), (b);<% } else { %>[intentionally omitted];<% } %>
 
 (vi) Section II, Clause 8;
 
@@ -334,7 +334,7 @@ Local laws affecting compliance with the Clauses
 
 (e) The data importer agrees to promptly notify the data exporter if, after having agreed to these Clauses and for the duration of the contract, it has reason to believe that it is or has become subject to laws not in line with the requirements under paragraph a), including following a change of the laws in the third country or a measure (such as a disclosure request) indicating an application of such laws in practice that is not in line with the requirements under paragraph a).
 
-(f) Following a notification pursuant to paragraph e), or if the data exporter otherwise has reason to believe that the data importer can no longer fulfil its obligations under the Clauses, the data exporter shall promptly identify appropriate measures (such as, for instance, technical or organisational measures to ensure security and confidentiality) to be adopted by the data exporter and / or data importer to address the situation, if appropriate in consultation with the [for Module Three: controller and] competent supervisory authority. If the data exporter decides to continue the transfer, based on its assessment that these additional measures will allow the data importer to fulfil its obligations under the Clauses, the data exporter shall forward the notification to the competent supervisory authority together with an explanation, including a description of the measures taken. The data exporter shall suspend the data transfer if it considers that no appropriate safeguards for such transfer can be ensured, or if instructed by [for Module Three: the controller or] the competent supervisory authority to do so. In this case, the data exporter shall inform the competent supervisory authority and shall be entitled to terminate the contract. In case the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the responsible Party, unless the Parties have agreed otherwise. When the contract is terminated pursuant to this Clause, Section III, Clause 1 (d) and (e) shall apply.
+(f) Following a notification pursuant to paragraph e), or if the data exporter otherwise has reason to believe that the data importer can no longer fulfil its obligations under the Clauses, the data exporter shall promptly identify appropriate measures (such as, for instance, technical or organisational measures to ensure security and confidentiality) to be adopted by the data exporter and / or data importer to address the situation, if appropriate in consultation with the <% if (locals.processorToProcessor) { %>controller and <% } %>competent supervisory authority. If the data exporter decides to continue the transfer, based on its assessment that these additional measures will allow the data importer to fulfil its obligations under the Clauses, the data exporter shall forward the notification to the competent supervisory authority together with an explanation, including a description of the measures taken. The data exporter shall suspend the data transfer if it considers that no appropriate safeguards for such transfer can be ensured, or if instructed by <% if (locals.processorToProcessor) { %>the controller or <% } %>the competent supervisory authority to do so. In this case, the data exporter shall inform the competent supervisory authority and shall be entitled to terminate the contract. In case the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the responsible Party, unless the Parties have agreed otherwise. When the contract is terminated pursuant to this Clause, Section III, Clause 1 (d) and (e) shall apply.
 
 <%_ } _%>
 
@@ -352,11 +352,11 @@ Obligations of the data importer in case of government access requests
 
 (ii) becomes aware of any direct access by public authorities to personal data transferred pursuant to these Clauses in accordance with the laws of the country of destination; such notification shall include all information available to the importer.
 
-[For Module Three: The data exporter shall forward the notification to the controller.]
+<%_ if (locals.processorToProcessor) { _%>The data exporter shall forward the notification to the controller.<%_ } _%>
 
 (b) If the data importer is prohibited from notifying the data exporter and / or the data subject, the data importer agrees to use its best efforts to obtain a waiver of the prohibition, with a view to communicate as much information and as soon as possible. The data importer agrees to document its best efforts in order to be able to demonstrate them upon request of the data exporter.
 
-(c) To the extent permissible under the laws of the country of destination, the data importer agrees to provide to the data exporter, in regular intervals for the duration of the contract, the greatest possible amount of relevant information on the requests received (in particular, number of requests, type of data requested, requesting authority or authorities, whether requests have been challenged and the outcome of such challenges, etc.). [For Module Three: The data exporter shall forward the information to the controller.]
+(c) To the extent permissible under the laws of the country of destination, the data importer agrees to provide to the data exporter, in regular intervals for the duration of the contract, the greatest possible amount of relevant information on the requests received (in particular, number of requests, type of data requested, requesting authority or authorities, whether requests have been challenged and the outcome of such challenges, etc.).<% if (locals.processorToProcessor) { %> The data exporter shall forward the information to the controller.<% } %>
 
 (d) The data importer agrees to preserve the information pursuant to paragraphs a) to c) for the duration of the contract and make it available to the competent supervisory authority upon request.
 
@@ -566,7 +566,7 @@ Clauses,
 
 In this case, it shall inform the competent supervisory authority of such noncompliance. Where the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the responsible Party, unless the Parties have agreed otherwise.
 
-(d) Personal data that has already been transferred prior to the termination of the contract shall [for Modules One, Two and Three: at the choice of the data exporter immediately be returned to the data exporter or destroyed in their entirety. The same shall apply to any copies of the data] [for Module Four: be destroyed in their entirety, including any copy thereof]. The data importer shall certify the destruction of the data to the data exporter. These obligations are notwithstanding any requirements under local law applicable to the data importer that prohibits return or destruction of the personal data transferred. In that case, the data importer warrants that it will ensure, to the extent possible, the level of protection required by these Clauses and will only process the data to the extent and for as long as required under that local law.
+(d) Personal data that has already been transferred prior to the termination of the contract shall <% if (locals.controllerToProcessor || locals.controllerToProcessor || processorToProcessor) { %>at the choice of the data exporter immediately be returned to the data exporter or destroyed in their entirety. The same shall apply to any copies of the data<% } else { %>be destroyed in their entirety, including any copy thereof<% } %>. The data importer shall certify the destruction of the data to the data exporter. These obligations are notwithstanding any requirements under local law applicable to the data importer that prohibits return or destruction of the personal data transferred. In that case, the data importer warrants that it will ensure, to the extent possible, the level of protection required by these Clauses and will only process the data to the extent and for as long as required under that local law.
 
 (e) Either Party may revoke its agreement to be bound by these Clauses where (i) the European Commission adopts a decision pursuant to Article 45(3) GDPR that covers the transfer of personal data to which these Clauses apply; or (ii) the GDPR becomes part of the legal framework of the country to which the personal data is transferred. This is without prejudice to other obligations applying to the processing in question under the GDPR.
 
@@ -574,7 +574,7 @@ Clause 2
 
 Governing law
 
-<%_ if (/* module two */ locals.controllerToProcessor || /* module three */ locals.processorToProcessor) { _%>
+<%_ if (locals.controllerToProcessor || locals.processorToProcessor) { _%>
 These Clauses shall be governed by the law of the Member State of the European Union where the data exporter is established. Where such law does not allow for third party beneficiary rights, they shall be governed by the law of another Member State of the European Union that allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).
 <%_ } else { _%>
 These Clauses shall be governed by the law of one of the Member States of the European Union, provided such law allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).
