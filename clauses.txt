@@ -68,9 +68,7 @@ Clause 5
 
 Description of the transfer(s)
 
-The details of the transfer(s), and in particular the categories of personal data that are
-transferred and the purposes for which they are transferred, are specified in Annex I.B
-[Description of the transfer(s)].
+The details of the transfer(s), and in particular the categories of personal data that are transferred and the purposes for which they are transferred, are specified in Annex I.B [Description of the transfer(s)].
 
 Clause 6 - Optional
 
@@ -88,8 +86,7 @@ Clause 1
 
 Data protection safeguards
 
-The data exporter warrants that it has used reasonable efforts to determine that the data
-importer is able to satisfy its obligations under these Clauses.
+The data exporter warrants that it has used reasonable efforts to determine that the data importer is able to satisfy its obligations under these Clauses.
 
 MODULE ONE: Transfer controller to controller
 
@@ -560,9 +557,7 @@ Non-compliance with the Clauses and termination
 
 (ii) the data importer is in substantial or persistent breach of these Clauses, or
 
-(iii) the data importer fails to comply with a binding decision of a competent court
-or the competent supervisory authority regarding its obligations under these
-Clauses,
+(iii) the data importer fails to comply with a binding decision of a competent court or the competent supervisory authority regarding its obligations under these Clauses,
 
 In this case, it shall inform the competent supervisory authority of such noncompliance. Where the contract involves more than two Parties, the data exporter may exercise this right to termination only with respect to the responsible Party, unless the Parties have agreed otherwise.
 
