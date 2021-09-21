@@ -17,6 +17,11 @@ $EJS -f /dev/stdin ./clauses.ejs > $variants/c2p.txt <<EOS
   "processorToController": false,
   "processorToProcessor": false,
   "combiningWithCollectedData": false,
+  "docking": true,
+  "specificPriorAuthorization": false,
+  "subprocessorAuthorizationTime": false,
+  "subprocessorNoticeTime": "thirty days",
+  "deleteOnTermination": true,
   "governingLawState": "France"
 }
 EOS

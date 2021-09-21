@@ -70,15 +70,23 @@ The details of the transfer(s), and in particular the categories of personal dat
 transferred and the purposes for which they are transferred, are specified in Annex I.B
 [Description of the transfer(s)].
 
-Clause 6 - Optional
+Clause 6
 
 Docking clause
+
+<%_ if (locals.docking) { _%>
 
 (a) An entity that is not a Party to the Clauses may, with the agreement of the Parties, accede to these Clauses at any time, either as a data exporter or as a data importer by completing Annex I.A [List of Parties], Annex I.B [Description of the transfer(s)] and Annex II [Technical and organisational measures].
 
 (b) Once Annex I.A. is completed and signed, the acceding entity shall be treated as a Party to these Clauses and shall have the rights and obligations of a data exporter or data importer in accordance with its designation in Annex I.A.
 
 (c) The acceding Party shall have no rights or obligations arising from the period prior to the date of signing Annex I.A.
+
+<%_ } else { _%>
+
+[intentionally omitted]
+
+<%_ } _%>
 
 SECTION II – OBLIGATIONS OF THE PARTIES
 
@@ -89,7 +97,7 @@ Data protection safeguards
 The data exporter warrants that it has used reasonable efforts to determine that the data
 importer is able to satisfy its obligations under these Clauses.
 
-<%_ if (controllerToController) { _%>
+<%_ if (locals.controllerToController) { _%>
 
 1.1 Purpose
 
@@ -161,7 +169,7 @@ The data importer shall ensure that any person acting under its authority, inclu
 
 (b) The data importer shall make such documentation available to the competent supervisory authority on request.
 
-<%_ } else if (controllerToProcessor) { _%>
+<%_ } else if (locals.controllerToProcessor) { _%>
 
 1.1 Instructions
 
@@ -183,7 +191,7 @@ If one of the Parties becomes aware that the personal data it has transferred or
 
 1.5 Storage limitation and erasure or return of data
 
-Processing by the data importer shall only take place for the duration specified in Annex I.B. Upon termination of the provision of the processing services, the data importer shall [[OPTION 1] delete all personal data processed on behalf of the data exporter and certify to the data exporter that it has done so / [OPTION 2] return to the data exporter all personal data processed on its behalf and delete existing copies]. This is notwithstanding any requirements under local law applicable to the data importer prohibiting return or destruction of the personal data. In that case, the data importer [warrants] that it will guarantee, to the extent possible, the level of protection required by these Clauses and will only process it to the extent and for as long as required under that local law.
+Processing by the data importer shall only take place for the duration specified in Annex I.B. Upon termination of the provision of the processing services, the data importer shall <% if (locals.deleteOnTermination) { %>delete all personal data processed on behalf of the data exporter and certify to the data exporter that it has done so<% } else { %>return to the data exporter all personal data processed on its behalf and delete existing copies<% } %>. This is notwithstanding any requirements under local law applicable to the data importer prohibiting return or destruction of the personal data. In that case, the data importer [warrants] that it will guarantee, to the extent possible, the level of protection required by these Clauses and will only process it to the extent and for as long as required under that local law.
 
 1.6 Security of processing
 
@@ -222,7 +230,7 @@ other safeguards under these Clauses, in particular purpose limitation.
 
 (e) The data importer shall make the information referred to in paragraphs b) and c), including the results of any audits, available to the competent supervisory authority on request.
 
-<%_ } else if (processorToProcessor) { _%>
+<%_ } else if (locals.processorToProcessor) { _%>
 
 1.1 Instructions
 
@@ -246,7 +254,7 @@ If one of the Parties becomes aware that the personal data it has transferred or
 
 1.5 Storage limitation and erasure or return of data
 
-Processing by the data importer shall only take place for the duration specified in Annex I.B. Upon termination of the provision of the processing services, the data importer shall [[OPTION 1] delete all personal data processed on behalf of the controller and certify to the data exporter that it has done so/ [OPTION 2] return to the data exporter all personal data processed on its behalf and delete existing copies]. This is notwithstanding any requirements under local law applicable to the data importer prohibiting return or destruction of the personal data. In that case, the data importer [warrants] that it will guarantee, to the extent possible, the level of protection required by these Clauses and will only process it to the extent and for as long as required under that local law.
+Processing by the data importer shall only take place for the duration specified in Annex I.B. Upon termination of the provision of the processing services, the data importer shall <% if (locals.deleteOnTermination) { %>delete all personal data processed on behalf of the controller and certify to the data exporter that it has done so<% } else { %>return to the data exporter all personal data processed on its behalf and delete existing copies<% } %>. This is notwithstanding any requirements under local law applicable to the data importer prohibiting return or destruction of the personal data. In that case, the data importer [warrants] that it will guarantee, to the extent possible, the level of protection required by these Clauses and will only process it to the extent and for as long as required under that local law.
 
 1.6 Security of processing
 
@@ -284,7 +292,7 @@ Any disclosure may only take place subject to compliance by the data importer wi
 
 (e) The data importer shall make the information referred to in paragraphs b) and c), including the results of any audits, available to the competent supervisory authority on request.
 
-<%_ } else if (processorToController) { _%>
+<%_ } else if (locals.processorToController) { _%>
 
 1.1 Instructions
 
@@ -308,7 +316,7 @@ Clause 2
 
 Local laws affecting compliance with the Clauses
 
-<%_ if (controllerToController || controllerToProcessor || processorToProcessor || (processorToController && combiningWithCollectedData)) { _%>
+<%_ if (locals.controllerToController || locals.controllerToProcessor || locals.processorToProcessor || (locals.processorToController && locals.combiningWithCollectedData)) { _%>
 
 (a) The Parties warrant that they have no reason to believe that the laws in the third country of destination applicable to the processing of the personal data by the data importer, including any requirements to disclose personal data or measures authorising access by public authorities, prevent the data importer from fulfilling its obligations under these Clauses. This is based on the understanding that laws that respect the essence of the fundamental rights and freedoms and do not exceed what is necessary and proportionate in a democratic society to safeguard one of the objectives listed in Article 23(1) GDPR, are not in contradiction with the Clauses.
 
@@ -334,7 +342,7 @@ Clause 3
 
 Obligations of the data importer in case of government access requests
 
-<%_ if (controllerToController || controllerToProcessor || processorToProcessor || (processorToController && combinesWithOtherCollectedData)) { _%>
+<%_ if (locals.controllerToController || locals.controllerToProcessor || locals.processorToProcessor || (locals.processorToController && combinesWithOtherCollectedData)) { _%>
 
 3.1 Notification
 
@@ -368,9 +376,17 @@ Clause 4
 
 Use of sub-processors
 
-<%_ if (controllerToProcessor) { _%>
+<%_ if (locals.controllerToProcessor) { _%>
 
-(a) OPTION 1 SPECIFIC PRIOR AUTHORISATION: The data importer shall not subcontract any of its processing activities performed on behalf of the data exporter under these Clauses to a sub-processor without its prior specific written authorisation. The data importer shall submit the request for specific authorisation at least [Specify time period] prior to the engagement of the concerned sub-processor. The list of sub-processors already authorised by the data exporter can be found in Annex III. The Parties shall keep Annex III up to date. OPTION 2 GENERAL WRITTEN AUTHORISATION: The data importer has the data exporter’s general authorisation for the engagement of sub-processor(s). The list of sub-processors the data importer intends to engage can be found in Annex III. The data importer shall inform the data exporter in writing of any intended changes of that list through the addition or replacement of sub-processors at least [Specify time period] in advance, thereby giving the data exporter the opportunity to object to such changes prior to the engagement of the concerned sub-processor(s). The Parties shall keep Annex III up to date.
+<%_ if (locals.specificPriorAuthorization) { _%>
+
+(a) The data importer shall not subcontract any of its processing activities performed on behalf of the data exporter under these Clauses to a sub-processor without its prior specific written authorisation. The data importer shall submit the request for specific authorisation at least <%= subprocessorAuthorizationTime %> prior to the engagement of the concerned sub-processor. The list of sub-processors already authorised by the data exporter can be found in Annex III. The Parties shall keep Annex III up to date.
+
+<%_ } else { _%>
+
+(a) The data importer has the data exporter’s general authorisation for the engagement of sub-processor(s). The list of sub-processors the data importer intends to engage can be found in Annex III. The data importer shall inform the data exporter in writing of any intended changes of that list through the addition or replacement of sub-processors at least <%= subprocessorNoticeTime %> in advance, thereby giving the data exporter the opportunity to object to such changes prior to the engagement of the concerned sub-processor(s). The Parties shall keep Annex III up to date.
+
+<%_ } _%>
 
 (b) Where the data importer engages a sub-processor for carrying out specific processing activities (on behalf of the data exporter), it shall do so by way of a written contract which provides for the same data protection obligations as the ones binding the data importer under these Clauses, including in terms of third party beneficiary rights for data subjects. The Parties agree that, by complying with this Clause, the data importer fulfils its obligations under Section II, Clause 1.8 [Onward transfers]. The data importer shall ensure that the sub-processor complies with the obligations to which the data importer is subject pursuant to these Clauses.
 
@@ -380,11 +396,17 @@ Use of sub-processors
 
 (e) The data importer shall agree a third party beneficiary clause with the sub-processor whereby, in the event of bankruptcy of the data importer, the data exporter shall be a third party beneficiary to the sub-processor contract and shall have the right to enforce the contract against the sub-processor, including where applicable by instructing the sub-processor to erase or return the personal data.
 
-<%_ } else if (processorToProcessor) { _%>
+<%_ } else if (locals.processorToProcessor) { _%>
 
-(a) OPTION 1 SPECIFIC PRIOR AUTHORISATION: The data importer shall not subcontract any of its processing activities performed on behalf of the data exporter under these Clauses to a sub-processor without prior specific written authorisation of the controller. The data importer shall submit the request for specific authorisation at least [Specify time period] prior to the engagement of the concerned sub-processor. It shall inform the data exporter of such engagement. The list of sub-processors already authorised by the controller can be found in Annex III. The Parties shall keep Annex III up to date.
+<%_ if (locals.specificPriorAuthorization) { _%>
 
-OPTION 2 GENERAL WRITTEN AUTHORISATION: The data importer has the controller’s general authorisation for the engagement of sub-processor(s). The list of sub-processors the data importer intends to engage can be found in Annex III. The data importer shall inform the controller in writing of any intended changes of that list through the addition or replacement of sub-processors at least [Specify time period] in advance, thereby giving the controller the opportunity to object to such changes prior to the engagement of the concerned sub-processor(s). It shall inform the data exporter of such engagement. The Parties shall keep Annex III up to date.
+(a) The data importer shall not subcontract any of its processing activities performed on behalf of the data exporter under these Clauses to a sub-processor without prior specific written authorisation of the controller. The data importer shall submit the request for specific authorisation at least <%= subprocessorAuthorizationTime %> prior to the engagement of the concerned sub-processor. It shall inform the data exporter of such engagement. The list of sub-processors already authorised by the controller can be found in Annex III. The Parties shall keep Annex III up to date.
+
+<%_ } else { _%>
+
+(a) The data importer has the controller’s general authorisation for the engagement of sub-processor(s). The list of sub-processors the data importer intends to engage can be found in Annex III. The data importer shall inform the controller in writing of any intended changes of that list through the addition or replacement of sub-processors at least [Specify time period] in advance, thereby giving the controller the opportunity to object to such changes prior to the engagement of the concerned sub-processor(s). It shall inform the data exporter of such engagement. The Parties shall keep Annex III up to date.
+
+<%_ } _%>
 
 (b) Where the data importer engages a sub-processor for carrying out specific processing activities (on behalf of the controller), it shall do so by way of a written contract which provides for the same data protection obligations as the ones binding the data importer under these Clauses, including in terms of third party beneficiary rights for data subjects. The Parties agree that, by complying with this Clause, the data importer fulfils its obligations under Section II, Clause 1.8 [Onward transfers]. The data importer shall ensure that the sub-processor complies with the obligations to which the data importer is subject pursuant to these Clauses.
 
@@ -400,7 +422,7 @@ Clause 5
 
 Data subject rights
 
-<%_ if (controllerToController) { _%>
+<%_ if (locals.controllerToController) { _%>
 
 (a) The data importer shall deal with any inquiries and requests it receives from a data subject relating to the processing of his / her personal data and the exercise of his / her rights under these Clauses without undue delay. The data importer shall take appropriate measures to facilitate such inquiries, requests and the exercise of data subject rights. Any information provided to the data subject shall be in an intelligible and easily accessible form, using clear and plain language.
 
@@ -426,19 +448,19 @@ Data subject rights
 
 (g) If the data importer intends to refuse a data subject’s request, it shall inform the data subject of the reasons for the refusal and about the possibility of lodging a complaint with the competent supervisory authority and / or seeking judicial review.
 
-<%_ } else if (controllerToProcessor) { _%>
+<%_ } else if (locals.controllerToProcessor) { _%>
 
 (a) The data importer shall promptly notify the data exporter about any inquiry or request received directly from a data subject. It shall not respond to that inquiry or request itself unless and until it has been authorised to do so by the data exporter.
 
 (b) Taking into account the nature of the processing, the data importer shall assist the data exporter in fulfilling its obligations to respond to data subjects’ inquiries and requests for the exercise of their rights under the GDPR.
 
-<%_ } else if (processorToProcessor) { _%>
+<%_ } else if (locals.processorToProcessor) { _%>
 
 (a) The data importer shall promptly notify the data exporter and, where appropriate, the controller about any inquiry or request received directly from a data subject, without responding to that inquiry or request unless and until it has been otherwise authorised to do so by the controller.
 
 (b) Taking into account the nature of the processing, the data importer shall assist the controller in fulfilling its obligations to respond to data subjects’ inquiries and requests for the exercise of their rights.
 
-<%_ } else if (processorToController) { _%>
+<%_ } else if (locals.processorToController) { _%>
 
 The Parties shall assist each other in responding to inquiries and requests made by data subjects under the local law applicable to the data importer or, for data processing by the data exporter in the EU, under the GDPR.
 
@@ -452,7 +474,7 @@ Redress
 
 <%_ if (independentDisputeResolutionBody) { _%>The data importer agrees that the data subject may also lodge a complaint with <%= independentDisputeResolutionBody %> at no cost to the data subject. It shall inform the data subject, in the manner set out in paragraph a), of this additional redress mechanism and that (s)he is not required to make use of such additional redress mechanism, or follow a particular sequence in seeking redress.<%_ } _%>
 
-<%_ if (controllerToController || controllerToProcessor || processorToProcessor) { _%>
+<%_ if (locals.controllerToController || locals.controllerToProcessor || locals.processorToProcessor) { _%>
 
 (a) The Parties agree that if there is a dispute between a data subject and one of the Parties as regards compliance with these Clauses, they shall keep each other informed about such proceedings and, where appropriate, cooperate in resolving the issue in a timely fashion.
 
@@ -474,7 +496,7 @@ Clause 7
 
 Liability
 
-<%_ if (controllerToController || processorToController) { _%>
+<%_ if (locals.controllerToController || locals.processorToController) { _%>
 
 (a) Each Party shall be liable to the other Party/ies for any material or non-material damages it causes the other Party/ies by any breach of these Clauses.
 
@@ -486,7 +508,7 @@ Liability
 
 (e) The data importer may not invoke the conduct of a sub-processor to avoid its own liability.
 
-<%_ } else if (controllerToProcessor || processorToProcessor) { _%>
+<%_ } else if (locals.controllerToProcessor || locals.processorToProcessor) { _%>
 
 (a) Each Party shall be liable to the other Party/ies for any material or non-material damages it causes the other Party/ies by any breach of these Clauses.
 
@@ -552,7 +574,7 @@ Clause 2
 
 Governing law
 
-<%_ if (/* module two */ controllerToProcessor || /* module three */ processorToProcessor) { _%>
+<%_ if (/* module two */ locals.controllerToProcessor || /* module three */ locals.processorToProcessor) { _%>
 These Clauses shall be governed by the law of the Member State of the European Union where the data exporter is established. Where such law does not allow for third party beneficiary rights, they shall be governed by the law of another Member State of the European Union that allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).
 <%_ } else { _%>
 These Clauses shall be governed by the law of one of the Member States of the European Union, provided such law allows for third party beneficiary rights. The Parties agree that this shall be the law of <%= governingLawState %> (specify Member State).
@@ -564,7 +586,7 @@ Choice of forum and jurisdiction
 
 (a) Any dispute arising from these Clauses shall be resolved by the courts of a Member State of the European Union. The Parties agree to submit themselves to the jurisdiction of such courts.
 
-(b) The Parties agree that those shall be the courts of _____ (specify Member State).
+(b) The Parties agree that those shall be the courts of <%= governingLawState %> (specify Member State).
 
 (c) Legal proceedings by a data subject against the data exporter and / or data importer may also be brought before the courts of the Member State where the data subject has his / her habitual residence.
 
