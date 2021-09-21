@@ -210,8 +210,7 @@ The data importer shall only disclose the personal data to a third party on the 
 
 (ii) the onward transfer is to a country benefitting from an adequacy decision pursuant to Article 45 Regulation (EU) 2016/679 that covers the onward transfer.
 
-Any disclosure may only take place subject to compliance by the data importer with all the
-other safeguards under these Clauses, in particular purpose limitation.
+Any disclosure may only take place subject to compliance by the data importer with all the other safeguards under these Clauses, in particular purpose limitation.
 
 [^4]: The Agreement on the European Economic Area (EEA Agreement) provides for the extension of the European Union's internal market to the three EEA States Iceland, Liechtenstein and Norway. The Union data protection legislation, including Regulation (EU) 2016/679, is covered by the EEA Agreement and has been incorporated into Annex XI thereof. Therefore, any disclosure by the data importer to a third party located in the EEA does not qualify as an onward transfer for the purposes of these Clauses.
 
